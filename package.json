@@ -1,0 +1,19 @@
+{
+  "name": "Blog",
+  "version": "0.0.1",
+  "description": "my blog",
+  "main": "index.js",
+  "repository": "https://github.com/tsingksan/tsingksan.github.io",
+  "author": "Tsingksan",
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "^1.2.3",
+    "vue": "^3.4.30"
+  },
+  "packageManager": "yarn@4.3.1",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  }
+}
