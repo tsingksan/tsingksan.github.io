@@ -1,6 +1,13 @@
-# SSH管理
+---
+title: SSH管理
+date: 2024-12-21
+author: Tsingksan
+update: 2024-12-21 16:01:01
+---
 
-Create: 2024-12-21 16:01:01    Update: 2024-12-21 16:01:01
+# {{ $frontmatter.title }}
+
+创建时间: {{ $frontmatter.create }}   更新时间: {{ $frontmatter.update }}
 
 ## SSH 密钥管理
 
