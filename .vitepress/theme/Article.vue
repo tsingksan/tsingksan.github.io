@@ -15,6 +15,7 @@ function findCurrentIndex() {
 
 // use the customData date which contains pre-resolved date info
 const date = computed(() => posts[findCurrentIndex()].date)
+const lastUpdate = computed(() => posts[findCurrentIndex()].lastUpdate)
 const nextPost = computed(() => posts[findCurrentIndex() - 1])
 const prevPost = computed(() => posts[findCurrentIndex() + 1])
 </script>
@@ -44,6 +45,14 @@ const prevPost = computed(() => posts[findCurrentIndex() + 1])
       <footer
         class="text-sm font-medium leading-5 divide-y divide-gray-200 dark:divide-slate-200/5 xl:col-start-1 xl:row-start-2"
       >
+        <div v-if="lastUpdate?.time" class="py-8">
+          <h2
+            class="text-xs tracking-wide uppercase text-gray-500 dark:text-white"
+          >
+            Last Updated
+          </h2>
+          <Date :date="lastUpdate" />
+        </div>
         <div v-if="nextPost" class="py-8">
           <h2
             class="text-xs tracking-wide uppercase text-gray-500 dark:text-white"

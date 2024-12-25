@@ -7,21 +7,26 @@ interface Post {
     time: number
     string: string
   }
+  lastUpdate?: {
+    time: number
+    string: string
+  }
   excerpt: string | undefined
 }
 
 declare const data: Post[]
 export { data }
 
-export default createContentLoader('*.md', {
+export default createContentLoader('/**/*.md', {
   excerpt: true,
   transform(raw): Post[] {
-    return raw.filter(item => item.url !== '/')
+    return raw.filter(item => !item.frontmatter.index)
       .map(({ url, frontmatter, excerpt }) => ({
         title: frontmatter.title,
         url,
         excerpt,
-        date: formatDate(frontmatter.date)
+        date: formatDate(frontmatter.date),
+        lastUpdate: formatDate(frontmatter.update),
       }))
       .sort((a, b) => b.date.time - a.date.time)
   }

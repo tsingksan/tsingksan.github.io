@@ -2,25 +2,25 @@ import { defineConfig } from 'vitepress'
 import { genFeed } from './genFeed.js'
 
 export default defineConfig({
-  title: 'The Vue Point',
-  description: 'The official blog for the Vue.js project',
+  title: 'The tsingksan Point',
+  // description: 'The official blog for the Vue.js project',
   cleanUrls: true,
   head: [
-    ['meta', { name: 'twitter:site', content: '@vuejs' }],
+    ['meta', { name: 'twitter:site', content: '@tsingksan' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
-    [
-      'meta',
-      {
-        name: 'twitter:image',
-        content: 'https://vuejs.org/images/logo.png'
-      }
-    ],
+    // [
+    //   'meta',
+    //   {
+    //     name: 'twitter:image',
+    //     content: 'https://vuejs.org/images/logo.png'
+    //   }
+    // ],
     [
       'link',
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: '/favicon.ico'
+        href: '/favicon.svg'
       }
     ],
     [
@@ -33,6 +33,12 @@ export default defineConfig({
       }
     ]
   ],
-  srcDir: "posts",
-  buildEnd: genFeed
+  buildEnd: genFeed,
+
+  lang: 'zh-CN',
+  srcDir: 'posts',
+  rewrites: {
+    '/': 'blogs/index.md',
+  },
+  ignoreDeadLinks: true
 })

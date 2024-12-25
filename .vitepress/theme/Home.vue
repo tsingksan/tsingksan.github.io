@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import Date from './Date.vue'
-import { data as posts } from './posts.data.js'
+import { data } from './posts.data.js'
 import { useData } from 'vitepress'
 
 const { frontmatter } = useData()
+
+const posts = data.filter(item => item.url.startsWith(window.location.pathname))
 </script>
 
 <template>

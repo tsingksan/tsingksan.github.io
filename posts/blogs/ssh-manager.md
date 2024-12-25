@@ -1,13 +1,16 @@
 ---
-title: SSH管理
+title: SSH管理  
 date: 2024-12-21
 author: Tsingksan
 update: 2024-12-21 16:01:01
 ---
 
-# {{ $frontmatter.title }}
+<script setup>
+import { useData } from 'vitepress'
 
-创建时间: {{ $frontmatter.create }}   更新时间: {{ $frontmatter.update }}
+const { theme } = useData()
+console.log(theme)
+</script>
 
 ## SSH 密钥管理
 
@@ -57,8 +60,10 @@ gpg --full-generate-key
    首先你需要下载 pinentry 进行密钥缓存：
 
 - macOS（Nix）：`pinentry_mac`
-- NixOS：`pinentry-tty`
-- 其他系统：请查询对应的包管理器
+- NixOS：`pinentry-tty` 
+
+    > [!TIP]
+    > 其他系统：请查询对应的包管理器
 
 2. 配置 GPG-Agent
    编辑 `~/.gnupg/gpg-agent.conf`：

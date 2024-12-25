@@ -18,10 +18,10 @@ export async function genFeed(config: SiteConfig) {
       ''
   })
 
-  const posts = (await createContentLoader('*.md', {
+  const posts = (await createContentLoader('/**/*.md', {
     excerpt: true,
     render: true
-  }).load()).filter(item => item.url !== '/')
+  }).load()).filter(item => !item.frontmatter.index)
 
   posts.sort(
     (a, b) =>
